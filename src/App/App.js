@@ -6,6 +6,7 @@ import Modal from "../components/modal/Modal.js";
 const App = () => {
   const inputEl = useRef(null);
   const [filter, setFilter] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [cardToggle, setCardToggle] = useState(true);
   const [state, setState] = useState([
     {
@@ -93,11 +94,29 @@ const App = () => {
     <Fragment>
       <React.StrictMode>
         <div className={styles.mainContainer}>
-          <Modal />
+          <Modal show={showModal} closeModal={() => setShowModal(false)} />
           <h1>list of data</h1>
-          <button style={{ marginBottom: "20px" }} onClick={toggleHandeler}>
-            {cardToggle ? "hide Names" : "show Names"}
-          </button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              marginBottom: "10px",
+            }}
+          >
+            <button
+              style={{ marginRight: "20px" }}
+              onClick={toggleHandeler}
+              className={styles.button}
+            >
+              {cardToggle ? "hide Names" : "show Names"}
+            </button>
+            <button
+              className={styles.button}
+              onClick={() => setShowModal(true)}
+            >
+              New Record
+            </button>
+          </div>
           <div className={cardToggle ? styles.show : styles.hide}>
             <Filter filteration={filterName} />
             <button onClick={searchButton}>Find </button>
