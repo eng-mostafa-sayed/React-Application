@@ -1,21 +1,20 @@
-import React from "react";
-import styles from "./Card.module.css";
+import React from 'react';
+import styles from './Card.module.css';
 
-const Card = ({ id, name, age, phone, address, type, deleteHandler }) => {
+const Card = ({ id, name, age, address, phone, type, deleteFunc }) => {
   return (
     <div
       className={styles.cardWrapper}
-      style={{
-        background: type === "girl" ? "pink" : "green",
-        fontWeight: "bold",
-      }}
+      style={{ backgroundColor: type === 'girl' ? 'pink' : 'green' }}
     >
-      <div> Name: {name} </div>
-      <div> phone: {phone} </div>
-      <div> age:{age}</div>
-      <div>address:{address}</div>
-      <div>type:{type}</div>
-      <div className={styles.deleteBtn} onClick={(e) => deleteHandler(e, id)}>
+      <div>Name:{name}</div>
+      <div>Age: {age}</div>
+      <div>Adress: {address}</div>
+      <div>Phone: {phone}</div>
+      <div
+        className={styles.deleteBtn}
+        onClick={(event) => deleteFunc(event, id)}
+      >
         x
       </div>
     </div>

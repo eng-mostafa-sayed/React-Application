@@ -1,11 +1,12 @@
-import React from "react";
-import Card from "../Card/Card.js";
+import React from 'react';
+import Card from '../Card/Card';
 
-const CardList = ({ nameList, deleteHandler }) => {
-  const cards = nameList.map(({ id, ...otherprops }) => (
-    <Card key={id} {...otherprops} id={id} deleteHandler={deleteHandler} />
-  ));
-  return <>{cards}</>;
+const CardList = ({ namesList, deleteFunc }) => {
+  console.log(namesList);
+  const cards = namesList.map(({ id, ...otherProps }) => {
+    return <Card key={id} id={id} {...otherProps} deleteFunc={deleteFunc} />;
+  });
+  return <div>{cards}</div>;
 };
 
 export default CardList;
