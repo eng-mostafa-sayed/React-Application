@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDom from "react-dom";
-import Form from "../Layout/Form";
+
 import styles from "./Modal.module.css";
 
 const Backdrop = ({ close, show }) => {
